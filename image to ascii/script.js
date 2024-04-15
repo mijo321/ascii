@@ -4,7 +4,6 @@ const fileInput = document.querySelector('input[type="file"');
 const ctx = canvas.getContext("2d");
 
 fileInput.onchange = e => {
-// just handling single file upload
     const file = e.target.files[0];
 
     const reader = new FileReader();
@@ -55,7 +54,7 @@ const convertToGreyScale = (ctx, width, height) => {
 const greyMap = '$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,"^`\'';
 const rampLength = greyMap.length;
 
-// the grayScale value is an integer ranging from 0 (black) to 255 (white)
+
 const getCharacterForGrayScale = grayScale =>
     greyMap[Math.ceil(((rampLength - 1) * grayScale) / 255)];
 
@@ -67,7 +66,7 @@ const drawAscii = (grayScales, width) => {
         const grayScale = grayScales[i];
         ascii += getCharacterForGrayScale(grayScale);
 
-        // If the next pixel is on a new line, add a newline character
+
         if ((i + 1) % width === 0) {
             ascii += '\n';
         }

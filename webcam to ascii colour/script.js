@@ -6,22 +6,17 @@
     const ctx = canvas.getContext("2d");
     
 
-    // Get access to the webcam
     navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
-        // Create a video element and set its source to the webcam stream
         const video = document.createElement('video');
         video.srcObject = stream;
         video.play();
 
-        // When the video is playing, start the ASCII conversion
         video.onplaying = () => {
-            // Set the canvas dimensions to match the video
             const [width, height] = clampDimensions(video.videoWidth, video.videoHeight);
             canvas.width = width;
             canvas.height = height;
 
-            // Continuously update the canvas with the current video frame
             setInterval(() => {
                 ctx.drawImage(video, 0, 0, width, height);
                 const { grayScales, colors } = convertToGreyScale(ctx, width, height);
@@ -59,7 +54,6 @@
     const greyMap = '$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,"^`\'';
     const rampLength = greyMap.length;
     
-    // the grayScale value is an integer ranging from 0 (black) to 255 (white)
     const getCharacterForGrayScale = grayScale =>
         greyMap[Math.ceil(((rampLength - 1) * grayScale) / 255)];
     
@@ -72,7 +66,7 @@
             const color = colors[i];
             ascii += `<span style="color: rgb(${color.r}, ${color.g}, ${color.b})">${getCharacterForGrayScale(grayScale)}</span>`;
     
-            // If the next pixel is on a new line, add a newline character
+        
             if ((i + 1) % width === 0) {
                 ascii += '<br>';
             }
@@ -121,7 +115,7 @@
         let h, s, l = (max + min) / 2;
     
         if(max == min){
-            h = s = 0; // achromatic
+            h = s = 0;
         } else {
             let d = max - min;
             s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
