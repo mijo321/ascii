@@ -1,0 +1,52 @@
+{
+  "name": "grunt-contrib-uglify",
+  "description": "Minify files with UglifyJS.",
+  "version": "0.5.1",
+  "homepage": "https://github.com/gruntjs/grunt-contrib-uglify",
+  "author": {
+    "name": "Grunt Team",
+    "url": "http://gruntjs.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gruntjs/grunt-contrib-uglify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gruntjs/grunt-contrib-uglify/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/gruntjs/grunt-contrib-uglify/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "lodash": "^2.4.1",
+    "maxmin": "^0.2.0",
+    "uglify-js": "^2.4.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-internal": "^0.4.2",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.4.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "files": [
+    "tasks",
+    "LICENSE-MIT"
+  ]
+}
